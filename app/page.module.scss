@@ -1,0 +1,94 @@
+@import "../uniform/uniform";
+
+.main {
+    @include centerDiv(column);
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 3rem;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-image: url("../public/kossuth.png");
+        @include centerImg();
+        z-index: -1;
+        opacity: .9;
+    }
+
+    .flag {
+        @include centerDiv(column);
+        width: auto;
+        max-width: 50%;
+        position: relative;
+
+        .color {
+            @include centerDiv(column);
+            align-items: flex-start;
+            padding: 3rem;
+            height: 10rem;
+
+            &:nth-child(1) {
+                background-color: $red;
+                border-radius: 0 10px 0 0;
+                color: white;
+
+                h1 {
+                    margin-bottom: 1rem;
+                    width: 100%;
+                    text-align: center;
+                }
+
+                h4 {
+                    text-align: center;
+                }
+            }
+
+            &:nth-child(2) {
+                background-color: white;
+
+                h4 {
+                    width: 100%;
+                    text-align: center;
+                    font-style: italic;
+                }
+            }
+
+            &:nth-child(3) {
+                background-color: $green;
+                border-radius: 0 0 10px 0;
+                color: white;
+                @include centerDiv(row);
+
+                button {
+                    border-radius: 5px;
+                    background-color: white;
+                    color: $green;
+                    margin: 0 1rem;
+                    padding: 1rem 2rem;
+                    border: none;
+                    transition: all .5s;
+
+                    &:hover {
+                        cursor: pointer;
+                        transform: scale(1.1);
+                        border-radius: 0;
+                    }
+                }
+            }
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 120%;
+            background-color: #B65F00;
+        }
+    }
+}

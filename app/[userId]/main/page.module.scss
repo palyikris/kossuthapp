@@ -1,0 +1,59 @@
+@import "../../../uniform/uniform";
+
+
+.container {
+    @include centerDiv(column);
+    position: relative;
+    margin-top: 5rem;
+
+    .text {
+        @include centerDiv(column);
+        width: 50%;
+
+        h1 {
+            @include centerDiv(row);
+            background-color: $red;
+            color: white;
+            padding: 2rem 0;
+            border-radius: 10px 10px 0 0;
+        }
+
+        h4 {
+            @include centerDiv(row);
+            padding: 2rem 0;
+            background-color: white;
+        }
+
+        .bottom {
+            @include centerDiv(column);
+            padding: 2rem 0;
+            background-color: $green;
+            border-radius: 0 0 10px 10px;
+
+            h3 {
+                color: white;
+                margin-bottom: 1rem;
+            }
+
+            button {
+                margin-top: 3rem;
+                @include myButton();
+            }
+        }
+    }
+
+
+
+
+    &::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-image: url("../../../public/kossuth3.jpg");
+        @include centerImg();
+        z-index: -1;
+    }
+}

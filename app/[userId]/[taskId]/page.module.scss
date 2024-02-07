@@ -1,0 +1,74 @@
+@import "../../../uniform/uniform";
+
+
+.container {
+    @include centerDiv(row);
+    height: 100vh;
+    background-image: url("../../../public/kossuth3.jpg");
+    @include centerImg();
+
+    .details {
+        @include centerDiv(column);
+        width: 50%;
+
+        .taskData {
+            @include centerDiv(column);
+            flex-wrap: wrap;
+            background-color: $red;
+            color: white;
+            padding: 2rem 0;
+
+            h1 {
+                margin-bottom: 1rem;
+            }
+
+            p {
+                font-style: italic;
+            }
+        }
+
+        .result {
+            @include centerDiv(row);
+            flex-wrap: wrap;
+            background-color: white;
+            padding: 2rem 0;
+
+            div {
+                @include centerDiv(column);
+                width: 33%;
+                color: $accent;
+
+                label {
+                    margin-bottom: 1rem;
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+
+                p {
+                    text-align: center;
+                }
+
+                .point {
+                    @include centerDiv(row);
+                    width: auto;
+                    margin: .5rem 0;
+
+                    p {
+                        margin: 0 .2rem;
+                    }
+                }
+            }
+        }
+
+        .bottom {
+            width: 100%;
+            padding: 2rem 0;
+            background-color: $green;
+            @include centerDiv(row);
+
+            button {
+                @include myButton();
+            }
+        }
+    }
+}
