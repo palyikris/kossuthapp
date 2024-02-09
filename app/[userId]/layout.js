@@ -10,7 +10,9 @@ export default function RootLayout({ children }) {
 
   useEffect(
     () => {
-      console.log(!user);
+      if (!user) {
+        router.push("/");
+      }
     },
     [user]
   );

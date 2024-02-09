@@ -74,6 +74,31 @@
 .container .details .result div .point p {
   margin: 0 0.2rem;
 }
+.container .details .result .uploadWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 4rem;
+}
+.container .details .result .uploadWrapper button {
+  border-radius: 5px;
+  background-color: white;
+  color: #008C00;
+  margin: 0 1rem;
+  padding: 1rem 2rem;
+  border: none;
+  transition: all 0.5s;
+  background-color: #3A001E;
+  color: white;
+  margin-top: 1rem;
+}
+.container .details .result .uploadWrapper button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  border-radius: 0;
+}
 .container .details .bottom {
   width: 100%;
   padding: 2rem 0;

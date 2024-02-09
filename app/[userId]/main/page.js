@@ -11,6 +11,7 @@ import {
 } from "@/lib/firebase/firebase";
 import { useAuthContext } from "@/context/AuthContext";
 import { logOut } from "@/firebase/auth/sign";
+import Loader from "@/components/loader/loader";
 
 export default function MainPage() {
   let { user } = useAuthContext();
@@ -18,6 +19,8 @@ export default function MainPage() {
   let [classOfUser, setClassOfUser] = useState("");
   let [tasks, setTasks] = useState([]);
   let [quotes, setQuotes] = useState([]);
+  let [quotesFetched, setQuotesFetched] = useState(false);
+  let [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     GetClassOfUser(uid)
@@ -26,6 +29,7 @@ export default function MainPage() {
         GetTasksOfClass(data)
           .then(res => {
             setTasks(res);
+            setIsLoading(false);
           })
           .catch(error => {
             console.error(error);
@@ -38,6 +42,7 @@ export default function MainPage() {
     GetQuote()
       .then(data => {
         setQuotes(data);
+        setQuotesFetched(true);
       })
       .catch(error => {
         console.error(error);
@@ -45,10 +50,17 @@ export default function MainPage() {
   }, []);
 
   let randomQuote = "";
-  let randomIndex = Math.floor(Math.random() * quotes.length);
-  randomQuote = quotes[randomIndex];
+  if (quotesFetched) {
+    let randomIndex = Math.floor(Math.random() * quotes.length);
+    randomQuote = quotes[randomIndex];
+  }
 
   let text = `Neked összesen ${tasks.length} feladatod volt`;
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.text}>

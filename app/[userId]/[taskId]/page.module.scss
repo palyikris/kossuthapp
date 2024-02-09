@@ -58,6 +58,18 @@
                     }
                 }
             }
+
+            .uploadWrapper {
+                @include centerDiv(column);
+                margin-top: 4rem;
+
+                button {
+                    @include myButton();
+                    background-color: $accent;
+                    color: white;
+                    margin-top: 1rem;
+                }
+            }
         }
 
         .bottom {

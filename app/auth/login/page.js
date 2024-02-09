@@ -22,7 +22,11 @@ export default function SignupPage() {
     // else successful
 
     console.log(result);
-    router.push(`/${result.user.uid}/main`);
+    if (result.user.uid === process.env.NEXT_PUBLIC_ADMIN_UID) {
+      router.push(`/${result.user.uid}/admin`);
+    } else {
+      router.push(`/${result.user.uid}/main`);
+    }
   };
   return (
     <div className={styles.container}>

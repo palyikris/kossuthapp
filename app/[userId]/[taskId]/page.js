@@ -3,7 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
-import { GetResultOfTask, GetTaskData } from "@/lib/firebase/firebase";
+import { GetResultOfTask, GetTaskData, SetTaskDone } from "@/lib/firebase/firebase";
 
 export default function TaskDetailPage() {
   let pathName = usePathname();
@@ -12,6 +12,7 @@ export default function TaskDetailPage() {
   let taskId = pathArray[2];
   let [taskData, setTaskData] = useState({});
   let [result, setResult] = useState({});
+  let [file, setFile] = useState(null);
   let router = useRouter();
 
   useEffect(() => {
@@ -20,12 +21,18 @@ export default function TaskDetailPage() {
     });
 
     GetResultOfTask(taskId, uid).then(data => {
-      console.log(data);
       setResult(data);
     });
   }, []);
 
-  console.log(result);
+  function handleUpload(e) {
+    e.preventDefault();
+    SetTaskDone(taskId, uid).then(() => {
+      router.push(`/${uid}/main`);
+    })
+  }
+
+
 
   return (
     <div className={styles.container}>
@@ -39,7 +46,7 @@ export default function TaskDetailPage() {
           </p>
         </div>
         <div className={styles.result}>
-          <div>
+          {result ? (<><div>
             <label>Jegy:</label>
             <p>
               {result.result}
@@ -74,7 +81,13 @@ export default function TaskDetailPage() {
                   </div>
                 );
               })}
-          </div>
+          </div></>) : (
+          <form className={styles.uploadWrapper} onSubmit={handleUpload}>
+            <label>Feladat megjelölése készként:</label>
+            <button type="submit">Beküldés</button>
+          </form>
+          )}
+          
         </div>
         <div className={styles.bottom}>
           <button

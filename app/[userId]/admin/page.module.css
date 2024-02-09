@@ -1,0 +1,107 @@
+.container {
+  background-image: url("../../../public/kossuth3.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  justify-content: flex-start;
+  padding-top: 5rem;
+}
+.container h1 {
+  font-size: 55px;
+  margin-bottom: 5rem;
+  color: #3A001E;
+}
+.container .filterWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  width: 60%;
+  border-radius: 10px;
+  padding: 1rem;
+}
+.container .filterWrapper .filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1rem;
+}
+.container .filterWrapper .filter label {
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+  color: #3A001E;
+  font-weight: bold;
+}
+.container .filterWrapper .filter select {
+  width: 60%;
+  color: #3A001E;
+  padding: 1rem 0.5rem;
+  margin: 0.5rem 0;
+  border: 1px solid #3A001E;
+  border-radius: 5px;
+}
+.container .filterWrapper .filter .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+.container .filterWrapper .filter .buttons .selected {
+  border: 1px solid #3A001E;
+  color: #3A001E;
+  background-color: white;
+}
+.container .filterWrapper .filter .buttons button {
+  border-radius: 5px;
+  background-color: white;
+  color: #008C00;
+  margin: 0 1rem;
+  padding: 1rem 2rem;
+  border: none;
+  transition: all 0.5s;
+  background-color: #3A001E;
+  color: white;
+  width: 100%;
+}
+.container .filterWrapper .filter .buttons button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  border-radius: 0;
+}
+.container .filterWrapper .buttonWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+.container .filterWrapper .buttonWrapper button {
+  border-radius: 5px;
+  background-color: white;
+  color: #008C00;
+  margin: 0 1rem;
+  padding: 1rem 2rem;
+  border: none;
+  transition: all 0.5s;
+  background-color: #3A001E;
+  color: white;
+  width: 100%;
+  margin: 0 1rem;
+  margin-top: 1rem;
+}
+.container .filterWrapper .buttonWrapper button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  border-radius: 0;
+}/*# sourceMappingURL=page.module.css.map */
