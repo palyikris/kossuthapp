@@ -32,7 +32,7 @@ export default function TaskDetailPage() {
     })
   }
 
-
+  console.log(result)
 
   return (
     <div className={styles.container}>
@@ -49,7 +49,7 @@ export default function TaskDetailPage() {
           {result ? (<><div>
             <label>Jegy:</label>
             <p>
-              {result.result}
+              {result.grade}
             </p>
           </div>
           <div>
@@ -60,18 +60,9 @@ export default function TaskDetailPage() {
           </div>
           <div>
             <label>Pontok</label>
-            {/* {result.points.forEach((point, index) => {
-              return (
-                <div key={index}>
-                  <p>{`${index + 1}. Feladat:`}</p>
-                  <p>
-                    {point}
-                  </p>
-                </div>
-              );
-            })} */}
-            {result.points &&
-              result.points.map((point, index) => {
+            
+            {result.tasks &&
+              result.tasks.map((point, index) => {
                 return (
                   <div key={index} className={styles.point}>
                     <p>{`${index + 1}. Feladat:`}</p>

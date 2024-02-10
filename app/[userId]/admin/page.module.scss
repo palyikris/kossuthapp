@@ -14,6 +14,13 @@
         color: $accent;
     }
 
+    .logout {
+        @include myButton();
+        background-color: $accent;
+        color: white;
+        margin-bottom: 5rem;
+    }
+
     .filterWrapper {
         @include centerDiv(column);
         background-color: white;

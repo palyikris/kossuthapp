@@ -8,6 +8,8 @@ import {
   GetTasksOfClass
 } from "@/lib/firebase/firebase";
 import TasksAdmin from "@/components/admin/tasks/tasks";
+import NewTaskAdderComponent from "@/components/admin/newtask/newtask";
+import { logOut } from "@/firebase/auth/sign";
 
 export default function AdminPage() {
   let [classes, setClasses] = useState([]);
@@ -68,6 +70,14 @@ export default function AdminPage() {
   return (
     <div className={styles.container}>
       <h1>Admin Page</h1>
+      <button
+        onClick={() => {
+          logOut();
+        }}
+        className={styles.logout}
+      >
+        Kijelentkezés
+      </button>
       <div className={styles.filterWrapper}>
         <div className={styles.filter}>
           <label htmlFor="classes">Osztály és Feladat</label>
@@ -157,6 +167,8 @@ export default function AdminPage() {
       </div>
 
       {isTasksDisplayed ? <TasksAdmin tasks={tasks} /> : <div />}
+
+      <NewTaskAdderComponent />
     </div>
   );
 }

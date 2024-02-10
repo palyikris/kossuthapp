@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  width: 60%;
+  padding: 2rem 0;
+  margin-top: 10rem;
+}
+.container .newTaskWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.container .newTaskWrapper .data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  width: 50%;
+  margin: 1rem 0;
+}
+.container .newTaskWrapper .data label {
+  width: 100%;
+  text-align: left;
+}
+.container .newTaskWrapper .data input,
+.container .newTaskWrapper .data select {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  color: #3A001E;
+  border: 1px solid #3A001E;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+}
+.container .newTaskWrapper .data button {
+  border-radius: 5px;
+  background-color: white;
+  color: #008C00;
+  margin: 0 1rem;
+  padding: 1rem 2rem;
+  border: none;
+  transition: all 0.5s;
+  background-color: #3A001E;
+  color: white;
+}
+.container .newTaskWrapper .data button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  border-radius: 0;
+}/*# sourceMappingURL=newtask.module.css.map */

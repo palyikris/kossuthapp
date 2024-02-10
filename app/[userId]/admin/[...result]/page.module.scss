@@ -1,0 +1,42 @@
+@import "../../../../uniform/uniform";
+
+
+.container {
+    @include centerDiv(column);
+    height: 100vh;
+    background-image: url("../../../../public/kossuth3.jpg");
+    @include centerImg();
+
+    .dataWrapper {
+        @include centerDiv(column);
+        padding: 2rem 1rem;
+        width: 60%;
+        background-color: white;
+        border-radius: 10px;
+
+        div {
+            @include centerDiv(column);
+
+            label {
+                width: 70%;
+                text-align: left;
+                color: $accent;
+            }
+
+            input {
+                width: 70%;
+                margin: .5rem 0;
+                padding: .5rem 1rem;
+                border: 1px solid $accent;
+                border-radius: 5px;
+            }
+
+            button {
+                @include myButton();
+                background-color: $accent;
+                color: white;
+                margin-top: 3rem;
+            }
+        }
+    }
+}
