@@ -46,7 +46,7 @@ export default function AdminPage() {
 
       if (isAll) {
         let filteredTasks = tasks.filter(task => task.taskId === chosenTask);
-        setTasks(tasks);
+        setTasks(filteredTasks);
       }
 
       if (isChecked) {
