@@ -24,8 +24,6 @@ export default function TasksAdmin(props) {
   }, []);
 
   if (userDataFetched) {
-    console.log(tasks);
-    console.log(userDatas);
     return (
       <div className={styles.container}>
         <h1>Beadások</h1>

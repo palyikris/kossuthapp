@@ -36,7 +36,7 @@ export default function AdminPage() {
         });
       }
     },
-    [chosenClass]
+    [chosenClass, chosenTask, isAll, isChecked, isNotChecked]
   );
 
   function handleTasks(e) {

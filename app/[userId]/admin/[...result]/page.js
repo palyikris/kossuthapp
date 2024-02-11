@@ -1,6 +1,11 @@
 "use client";
 
-import { GetResultIdByTaskAndUid, UploadResult } from "@/lib/firebase/firebase";
+import {
+  CheckIfResultIsCheckedById,
+  GetResultIdByTaskAndUid,
+  GetResultOfTask,
+  UploadResult
+} from "@/lib/firebase/firebase";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import styles from "./page.module.css";
@@ -17,11 +22,24 @@ export default function UploadResultPage() {
   let [tasksData, setTasksData] = useState([]);
   let [grade, setGrade] = useState(0);
   let [comment, setComment] = useState("");
+  let [isResultChecked, setIsResultChecked] = useState(false);
   let router = useRouter();
 
   useEffect(() => {
     GetResultIdByTaskAndUid(taskId, uid).then(response => {
-      setResultId(response);
+      CheckIfResultIsCheckedById(response).then(isChecked => {
+        if (isChecked) {
+          setResultId(response);
+          setIsResultChecked(true);
+          GetResultOfTask(taskId, uid).then(response => {
+            setGrade(response.grade);
+            setComment(response.comment);
+            setTasksData(response.tasks);
+          });
+        } else {
+          setResultId(response);
+        }
+      });
     });
   }, []);
 
@@ -48,6 +66,56 @@ export default function UploadResultPage() {
     UploadResult(data).then(() => {
       router.push(`/${adminId}/admin`);
     });
+  }
+
+  if (isResultChecked) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.dataWrapper}>
+          <h1>Eredmény már ki lett értékelve</h1>
+          <div className={styles.results}>
+            <div className={styles.result}>
+              <label>Jegy:</label>
+              <input
+                type="text"
+                value={grade}
+                onChange={e => {
+                  setGrade(e.target.value);
+                }}
+              />
+            </div>
+            <div className={styles.result}>
+              <label>Megjegyzés:</label>
+              <input
+                type="text"
+                value={comment}
+                onChange={e => {
+                  setComment(e.target.value);
+                }}
+              />
+            </div>
+            <div className={styles.result}>
+              {tasksData.map((task, index) => {
+                return (
+                  <div key={index} className={styles.task}>
+                    <label>{`Feladat ${index + 1}:`}</label>
+                    <input
+                      type="text"
+                      id={`task${index}`}
+                      onChange={e => handleTaskInputChange(e, index)}
+                      value={tasksData[index]}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            <button type="button" onClick={handleUpload}>
+              Módosítás
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
