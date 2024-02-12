@@ -33,7 +33,9 @@
   max-height: 20rem;
   overflow-y: scroll;
 }
-.container .tasks .task {
+.container .tasks .task,
+.container .tasks .taskDone,
+.container .tasks .taskChecked {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,22 +47,30 @@
   padding: 1rem;
   border-radius: 5px;
 }
-.container .tasks .task h3 {
+.container .tasks .task h3,
+.container .tasks .taskDone h3,
+.container .tasks .taskChecked h3 {
   text-align: center;
   margin-bottom: 1rem;
   color: #E52020;
 }
-.container .tasks .task p {
+.container .tasks .task p,
+.container .tasks .taskDone p,
+.container .tasks .taskChecked p {
   text-align: center;
   margin-bottom: 2rem;
   font-style: italic;
 }
-.container .tasks .task .details {
+.container .tasks .task .details,
+.container .tasks .taskDone .details,
+.container .tasks .taskChecked .details {
   margin-bottom: 2rem;
   color: #E52020;
   font-style: italic;
 }
-.container .tasks .task .linkToTask {
+.container .tasks .task .linkToTask,
+.container .tasks .taskDone .linkToTask,
+.container .tasks .taskChecked .linkToTask {
   text-align: center;
   color: white;
   background-color: #E52020;
@@ -74,8 +84,36 @@
   flex-direction: row;
   width: 100%;
 }
-.container .tasks .task .linkToTask:hover {
+.container .tasks .task .linkToTask:hover,
+.container .tasks .taskDone .linkToTask:hover,
+.container .tasks .taskChecked .linkToTask:hover {
   background-color: #bc1616;
+}
+.container .tasks .taskChecked {
+  box-shadow: 0 0 10px 2px rgba(0, 140, 0, 0.5);
+  color: #008C00;
+}
+.container .tasks .taskChecked h3 {
+  color: #008C00;
+}
+.container .tasks .taskChecked .details {
+  color: #008C00;
+}
+.container .tasks .taskChecked .linkToTask {
+  background-color: #008C00;
+}
+.container .tasks .taskDone {
+  box-shadow: 0 0 10px 2px rgba(58, 0, 30, 0.5);
+  color: #3A001E;
+}
+.container .tasks .taskDone h3 {
+  color: #3A001E;
+}
+.container .tasks .taskDone .details {
+  color: #3A001E;
+}
+.container .tasks .taskDone .linkToTask {
+  background-color: #3A001E;
 }
 .container .bottom {
   width: 100%;
