@@ -22,6 +22,22 @@
             @include centerDiv(row);
             padding: 2rem 0;
             background-color: white;
+
+            .red,
+            .accent {
+                margin: 0 .3rem;
+                font-weight: bold;
+                font-size: 17px;
+            }
+
+            .red {
+                color: $red;
+            }
+
+            .accent {
+                color: $accent;
+            }
+
         }
 
         .bottom {

@@ -69,9 +69,9 @@ export default function Tasks(props) {
                 >
                   Részletek
                 </Link>
-                <Link href={task.linktotask} className={styles.linkToTask}>
+                {/* <Link href={task.linktotask} className={styles.linkToTask}>
                   Letöltés
-                </Link>
+                </Link> */}
               </div>
             );
           }
@@ -91,9 +91,9 @@ export default function Tasks(props) {
                 >
                   Részletek
                 </Link>
-                <Link href={task.linktotask} className={styles.linkToTask}>
+                {/* <Link href={task.linktotask} className={styles.linkToTask}>
                   Letöltés
-                </Link>
+                </Link> */}
               </div>
             );
           }

@@ -1,0 +1,41 @@
+@import "../uniform/uniform";
+
+
+.container {
+    @include centerDiv(row);
+    height: 100vh;
+    background-image: url("../public/kossuth.png");
+    @include centerImg();
+    justify-content: flex-start;
+
+    .flag {
+        @include centerDiv(column);
+        width: 40%;
+
+        h2 {
+            height: 10rem;
+            @include centerDiv(row);
+            text-align: center;
+            background-color: $red;
+            color: white;
+        }
+
+        p {
+            @include centerDiv(row);
+            text-align: center;
+            background-color: white;
+            color: $accent;
+            height: 10rem;
+        }
+
+        .buttonWrapper {
+            @include centerDiv(row);
+            height: 10rem;
+            background-color: $green;
+
+            button {
+                @include myButton();
+            }
+        }
+    }
+}

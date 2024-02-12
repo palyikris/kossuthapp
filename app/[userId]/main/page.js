@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import {
   GetClassOfUser,
   GetQuote,
+  GetResultOfUserForTask,
   GetTasksOfClass
 } from "@/lib/firebase/firebase";
 import { useAuthContext } from "@/context/AuthContext";
@@ -21,6 +22,7 @@ export default function MainPage() {
   let [quotes, setQuotes] = useState([]);
   let [quotesFetched, setQuotesFetched] = useState(false);
   let [isLoading, setIsLoading] = useState(true);
+  let [resultsOfUser, setResultsOfUser] = useState([]);
 
   useEffect(() => {
     GetClassOfUser(uid)
@@ -29,6 +31,22 @@ export default function MainPage() {
         GetTasksOfClass(data)
           .then(res => {
             setTasks(res);
+            res.map(task => {
+              GetResultOfUserForTask(uid, task.id)
+                .then(data => {
+                  if (data) {
+                    setResultsOfUser(prev => [...prev, data]);
+                  }
+                })
+                // .then(() => {
+                //   setResultsOfUser(prev =>
+                //     prev.splice(0, resultsOfUser.length / 2)
+                //   );
+                // })
+                .catch(error => {
+                  console.error(error);
+                });
+            });
             setIsLoading(false);
           })
           .catch(error => {
@@ -55,8 +73,6 @@ export default function MainPage() {
     randomQuote = quotes[randomIndex];
   }
 
-  let text = `Neked összesen ${tasks.length} feladatod volt`;
-
   if (isLoading) {
     return <Loader />;
   }
@@ -66,7 +82,16 @@ export default function MainPage() {
       <div className={styles.text}>
         <h1>Kossuth Lajos azt üzente...</h1>
         <h4>
-          {text}
+          Neked{" "}
+          <span className={styles.red}>
+            {tasks.length - resultsOfUser.length / 2}
+          </span>{" "}
+          feladatod van még hátra,{" "}
+          <span className={styles.accent}>
+            {resultsOfUser.filter(result => result.isChecked === true).length /
+              2}
+          </span>{" "}
+          feladat vár javításra.
         </h4>
         <div className={styles.bottom}>
           <h3>

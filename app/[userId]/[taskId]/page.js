@@ -4,6 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
 import { GetResultOfTask, GetTaskData, SetTaskDone } from "@/lib/firebase/firebase";
+import Spinner from './../../../components/cssspinner/spinner';
 
 export default function TaskDetailPage() {
   let pathName = usePathname();
@@ -12,8 +13,8 @@ export default function TaskDetailPage() {
   let taskId = pathArray[2];
   let [taskData, setTaskData] = useState({});
   let [result, setResult] = useState({});
-  let [file, setFile] = useState(null);
   let router = useRouter();
+  let [loading, setLoading] = useState(true);
 
   useEffect(() => {
     GetTaskData(taskId).then(data => {
@@ -22,6 +23,7 @@ export default function TaskDetailPage() {
 
     GetResultOfTask(taskId, uid).then(data => {
       setResult(data);
+      setLoading(false);
     });
   }, []);
 
@@ -32,7 +34,26 @@ export default function TaskDetailPage() {
     })
   }
 
-  console.log(result)
+
+  if(loading){
+    return(
+      <div className={styles.container}>
+        <div className={styles.details}>
+          <Spinner></Spinner>
+        </div>
+      </div>
+    )
+  }
+
+  if(!taskData){
+    return(
+      <div className={styles.container}>
+        <div className={styles.details}>
+          <h1>404 - Nincs ilyen oldal te majom!</h1>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className={styles.container}>
@@ -48,20 +69,19 @@ export default function TaskDetailPage() {
         <div className={styles.result}>
           {result ? (<><div>
             <label>Jegy:</label>
-            <p>
+            {result.isChecked ? (<p>
               {result.grade}
-            </p>
+            </p>) : (<p>Rajta vagyok diló!</p>)}
           </div>
           <div>
             <label>Megjegyzés:</label>
-            <p>
+            {result.isChecked ? (<p>
               {result.comment}
-            </p>
+            </p>) : (<p>Ne türelmetlenkedjél!!</p>)}
           </div>
           <div>
             <label>Pontok</label>
-            
-            {result.tasks &&
+            {result.isChecked ? (<>{result.tasks &&
               result.tasks.map((point, index) => {
                 return (
                   <div key={index} className={styles.point}>
@@ -71,14 +91,13 @@ export default function TaskDetailPage() {
                     </p>
                   </div>
                 );
-              })}
+              })}</>) : (<p>ÁLLJÁL LE!!!!</p>)}
           </div></>) : (
           <form className={styles.uploadWrapper} onSubmit={handleUpload}>
             <label>Feladat megjelölése készként:</label>
             <button type="submit">Beküldés</button>
           </form>
           )}
-          
         </div>
         <div className={styles.bottom}>
           <button

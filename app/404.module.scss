@@ -1,0 +1,9 @@
+@import "../uniform/uniform";
+
+
+.container {
+    @include centerDiv(row);
+    height: 100vh;
+    background-image: url("../public/kossuth.png");
+    @include centerImg();
+}

@@ -4,6 +4,7 @@ import { useAuthContext } from "@/context/AuthContext";
 import { GetClasses, GetUserData, SetUserData } from "@/lib/firebase/firebase";
 import { useEffect, useState } from "react";
 import styles from "./settings.module.css";
+import Spinner from "@/components/cssspinner/spinner";
 
 export default function UserSettings() {
   let [classes, setClasses] = useState([]);
@@ -11,6 +12,7 @@ export default function UserSettings() {
   let [selectedClass, setSelectedClass] = useState("");
   let { user } = useAuthContext();
   let uid = user.uid;
+  let [loading, setLoading] = useState(false);
 
   useEffect(() => {
     GetClasses().then(response => {
@@ -25,7 +27,24 @@ export default function UserSettings() {
 
   function handleMutation(e) {
     e.preventDefault();
-    SetUserData(uid, fullname, selectedClass).then(() => {});
+    setLoading(true);
+    SetUserData(uid, fullname, selectedClass).then(() => {
+      setLoading(false);
+    });
+  }
+
+  if (loading) {
+    return (
+      <div className={styles.container}>
+        <h1>Felhasználói beállítások</h1>
+        <form autoComplete="off" onSubmit={handleMutation}>
+          <Spinner />
+          <div className={styles.buttonWrapper}>
+            <button type="submit">Módosítás</button>
+          </div>
+        </form>
+      </div>
+    );
   }
 
   return (
