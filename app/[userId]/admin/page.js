@@ -71,14 +71,16 @@ export default function AdminPage() {
   return (
     <div className={styles.container}>
       <h1>Admin Page</h1>
-      <button
-        onClick={() => {
-          logOut();
-        }}
-        className={styles.logout}
-      >
-        Kijelentkezés
-      </button>
+      <div className={styles.logoutWrapper}>
+        <button
+          onClick={() => {
+            logOut();
+          }}
+          className={styles.logout}
+        >
+          Kijelentkezés
+        </button>
+      </div>
       <div className={styles.filterWrapper}>
         <div className={styles.filter}>
           <label htmlFor="classes">Osztály és Feladat</label>

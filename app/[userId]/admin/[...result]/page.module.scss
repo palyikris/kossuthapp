@@ -37,6 +37,18 @@
                 color: white;
                 margin-top: 3rem;
             }
+
+            .delete {
+                background-color: $red;
+            }
+
+            .mod {
+                background-color: $green;
+            }
+        }
+
+        .buttonWrapper {
+            @include centerDiv(row);
         }
     }
 }

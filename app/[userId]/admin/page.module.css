@@ -16,8 +16,29 @@
   font-size: 55px;
   margin-bottom: 5rem;
   color: #3A001E;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  border-radius: 8px;
+  width: 40%;
+  padding: 2rem 0;
 }
-.container .logout {
+.container .logoutWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  width: auto;
+  padding: 5rem 2rem;
+  background-color: white;
+  margin-bottom: 5rem;
+  border-radius: 100%;
+}
+.container .logoutWrapper .logout {
   border-radius: 5px;
   background-color: white;
   color: #008C00;
@@ -27,9 +48,8 @@
   transition: all 0.5s;
   background-color: #3A001E;
   color: white;
-  margin-bottom: 5rem;
 }
-.container .logout:hover {
+.container .logoutWrapper .logout:hover {
   cursor: pointer;
   transform: scale(1.1);
   border-radius: 0;
@@ -75,7 +95,6 @@
   width: 100%;
 }
 .container .filterWrapper .filter .buttons .selected {
-  border: 1px solid #3A001E;
   color: #3A001E;
   background-color: white;
 }
@@ -90,11 +109,17 @@
   background-color: #3A001E;
   color: white;
   width: 100%;
+  margin: 0;
+  border-radius: 0;
+  border: 1px solid #3A001E;
 }
 .container .filterWrapper .filter .buttons button:hover {
   cursor: pointer;
   transform: scale(1.1);
   border-radius: 0;
+}
+.container .filterWrapper .filter .buttons button:hover {
+  transform: scale(1);
 }
 .container .filterWrapper .buttonWrapper {
   display: flex;

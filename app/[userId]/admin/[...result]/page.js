@@ -2,6 +2,7 @@
 
 import {
   CheckIfResultIsCheckedById,
+  DeleteResultByResultId,
   GetResultIdByTaskAndUid,
   GetResultOfTask,
   UploadResult
@@ -68,6 +69,12 @@ export default function UploadResultPage() {
     });
   }
 
+  function deleteResult() {
+    DeleteResultByResultId(resultId).then(() => {
+      router.push(`/${adminId}/admin`);
+    });
+  }
+
   if (isResultChecked) {
     return (
       <div className={styles.container}>
@@ -109,9 +116,25 @@ export default function UploadResultPage() {
                 );
               })}
             </div>
-            <button type="button" onClick={handleUpload}>
-              Módosítás
-            </button>
+            <div className={styles.buttonWrapper}>
+              <button
+                type="button"
+                onClick={handleUpload}
+                className={styles.mod}
+              >
+                Módosítás
+              </button>
+              <button
+                onClick={() => {
+                  router.push(`/${adminId}/admin`);
+                }}
+              >
+                Vissza
+              </button>
+              <button onClick={deleteResult} className={styles.delete}>
+                Eredmény törlése
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -133,13 +156,20 @@ export default function UploadResultPage() {
                 value={numberOfTasks}
               />
             </div>
-            <div>
+            <div className={styles.buttonWrapper}>
               <button
                 onClick={() => {
                   setIsNumberOfTasks(false);
                 }}
               >
                 Nyomod
+              </button>
+              <button
+                onClick={() => {
+                  router.push(`/${adminId}/admin`);
+                }}
+              >
+                Vissza
               </button>
             </div>
           </div>

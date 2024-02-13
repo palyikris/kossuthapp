@@ -56,4 +56,17 @@
   cursor: pointer;
   transform: scale(1.1);
   border-radius: 0;
+}
+.container .dataWrapper div .delete {
+  background-color: #E52020;
+}
+.container .dataWrapper div .mod {
+  background-color: #008C00;
+}
+.container .dataWrapper .buttonWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
 }/*# sourceMappingURL=page.module.css.map */

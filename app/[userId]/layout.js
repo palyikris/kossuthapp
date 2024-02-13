@@ -7,7 +7,7 @@ import { useEffect } from "react";
 export default function RootLayout({ children }) {
   const { user } = useAuthContext();
   const router = useRouter();
-  let urlUid = usePathname().split("/")[1]
+  let urlUid = usePathname().split("/")[1];
 
   useEffect(
     () => {
@@ -18,14 +18,13 @@ export default function RootLayout({ children }) {
     [user]
   );
 
-  if(user.uid != urlUid){
-    return router.push("/not-found")
-  }
-  if(user){
-    return <>{children}</>
-  }
-  else{
+  if (user) {
+    if (user.uid != urlUid) {
+      router.push("/");
+    } else {
+      return children;
+    }
+  } else {
     router.push("/");
-    return null;
   }
 }
