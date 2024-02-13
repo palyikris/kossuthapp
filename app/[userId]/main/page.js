@@ -22,7 +22,6 @@ export default function MainPage() {
   let [quotes, setQuotes] = useState([]);
   let [quotesFetched, setQuotesFetched] = useState(false);
   let [isLoading, setIsLoading] = useState(true);
-  let [resultsOfUser, setResultsOfUser] = useState([]);
 
   useEffect(() => {
     GetClassOfUser(uid)
@@ -31,22 +30,6 @@ export default function MainPage() {
         GetTasksOfClass(data)
           .then(res => {
             setTasks(res);
-            res.map(task => {
-              GetResultOfUserForTask(uid, task.id)
-                .then(data => {
-                  if (data) {
-                    setResultsOfUser(prev => [...prev, data]);
-                  }
-                })
-                // .then(() => {
-                //   setResultsOfUser(prev =>
-                //     prev.splice(0, resultsOfUser.length / 2)
-                //   );
-                // })
-                .catch(error => {
-                  console.error(error);
-                });
-            });
             setIsLoading(false);
           })
           .catch(error => {
@@ -77,21 +60,16 @@ export default function MainPage() {
     return <Loader />;
   }
 
+  let text = `Neked eddig ${(
+    tasks.length
+  )} feladatod volt.`;
+
   return (
     <div className={styles.container}>
       <div className={styles.text}>
         <h1>Kossuth Lajos azt üzente...</h1>
         <h4>
-          Neked{" "}
-          <span className={styles.red}>
-            {tasks.length - resultsOfUser.length / 2}
-          </span>{" "}
-          feladatod van még hátra,{" "}
-          <span className={styles.accent}>
-            {resultsOfUser.filter(result => result.isChecked === true).length /
-              2}
-          </span>{" "}
-          feladat vár javításra.
+          {text}
         </h4>
         <div className={styles.bottom}>
           <h3>

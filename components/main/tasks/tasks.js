@@ -5,11 +5,13 @@ import styles from "./tasks.module.css";
 import { useAuthContext } from "@/context/AuthContext";
 import { useEffect, useState } from "react";
 import { GetResultOfTask } from "@/lib/firebase/firebase";
+import { useRouter } from "next/navigation";
 
 export default function Tasks(props) {
   let { classOfUser, tasks } = props;
   let { user } = useAuthContext();
   let [resultsofTasks, setResultsofTasks] = useState([]);
+  let router = useRouter();
 
   function checkIfTaskIdIsInResults(taskId) {
     let hasResult = false;
@@ -56,7 +58,13 @@ export default function Tasks(props) {
 
           if (isTaskChecked) {
             return (
-              <div key={index} className={styles.taskChecked}>
+              <div
+                key={index}
+                className={styles.taskChecked}
+                onClick={() => {
+                  router.push(`/${user.uid}/${task.id}`);
+                }}
+              >
                 <h3>
                   {task.name}
                 </h3>
@@ -72,13 +80,20 @@ export default function Tasks(props) {
                 {/* <Link href={task.linktotask} className={styles.linkToTask}>
                   Letöltés
                 </Link> */}
+                <p style={{ margin: "0" }}>Kész van!</p>
               </div>
             );
           }
 
           if (isTaskDone) {
             return (
-              <div key={index} className={styles.taskDone}>
+              <div
+                key={index}
+                className={styles.taskDone}
+                onClick={() => {
+                  router.push(`/${user.uid}/${task.id}`);
+                }}
+              >
                 <h3>
                   {task.name}
                 </h3>
@@ -94,11 +109,18 @@ export default function Tasks(props) {
                 {/* <Link href={task.linktotask} className={styles.linkToTask}>
                   Letöltés
                 </Link> */}
+                <p style={{ margin: "0" }}>Javítás alatt...</p>
               </div>
             );
           }
           return (
-            <div key={index} className={styles.task}>
+            <div
+              key={index}
+              className={styles.task}
+              onClick={() => {
+                router.push(`/${user.uid}/${task.id}`);
+              }}
+            >
               <h3>
                 {task.name}
               </h3>
