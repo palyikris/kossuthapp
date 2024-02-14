@@ -6,7 +6,6 @@ import {
   signInWithPopup
 } from "firebase/auth";
 import { provider } from "./../config";
-import { signIn } from "@/firebase/auth/sign";
 
 export async function signUp(email, password) {
   let result = null,

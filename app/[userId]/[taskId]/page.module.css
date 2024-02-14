@@ -28,6 +28,7 @@
   background-color: #E52020;
   color: white;
   padding: 2rem 0;
+  border-radius: 10px;
 }
 .container .details .taskData h1 {
   margin-bottom: 1rem;

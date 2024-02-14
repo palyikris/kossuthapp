@@ -62,12 +62,21 @@
             .buttonWrapper {
                 @include centerDiv(row);
                 background-color: $green;
-                padding: 3rem 0;
+                padding: 1rem 0;
 
                 button {
                     @include myButton();
                 }
+            }
+        }
 
+        .buttonWrapper {
+            @include centerDiv(row);
+            background-color: $green;
+            padding: 1rem 0;
+
+            button {
+                @include myButton();
             }
         }
     }

@@ -1,9 +1,8 @@
 "use client";
-import { signIn } from "@/firebase/auth/sign";
+import { signIn, signInWithGoogle } from "@/firebase/auth/sign";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import styles from "../newacc/page.module.css";
-import { useAuthContext } from "@/context/AuthContext";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
@@ -21,13 +20,28 @@ export default function SignupPage() {
 
     // else successful
 
-    console.log(result);
     if (result.user.uid === process.env.NEXT_PUBLIC_ADMIN_UID) {
       router.push(`/${result.user.uid}/admin`);
     } else {
       router.push(`/${result.user.uid}/main`);
     }
   };
+
+  async function handleGoogleAuth() {
+    const { result, error } = await signInWithGoogle();
+
+    if (error) {
+      return console.log(error);
+    }
+
+    // else successful
+
+    if (result.user.uid === process.env.NEXT_PUBLIC_ADMIN_UID) {
+      router.push(`/${result.user.uid}/admin`);
+    } else {
+      router.push(`/${result.user.uid}/main`);
+    }
+  }
   return (
     <div className={styles.container}>
       <div className={styles.img} />
@@ -70,6 +84,11 @@ export default function SignupPage() {
             </button>
           </div>
         </form>
+        <div className={styles.buttonWrapper}>
+          <button Google onClick={handleGoogleAuth}>
+            Google
+          </button>
+        </div>
       </div>
     </div>
   );

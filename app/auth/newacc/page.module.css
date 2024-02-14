@@ -79,7 +79,7 @@
   flex-direction: row;
   width: 100%;
   background-color: #008C00;
-  padding: 3rem 0;
+  padding: 1rem 0;
 }
 .container .formWrapper form .buttonWrapper button {
   border-radius: 5px;
@@ -91,6 +91,29 @@
   transition: all 0.5s;
 }
 .container .formWrapper form .buttonWrapper button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  border-radius: 0;
+}
+.container .formWrapper .buttonWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  background-color: #008C00;
+  padding: 1rem 0;
+}
+.container .formWrapper .buttonWrapper button {
+  border-radius: 5px;
+  background-color: white;
+  color: #008C00;
+  margin: 0 1rem;
+  padding: 1rem 2rem;
+  border: none;
+  transition: all 0.5s;
+}
+.container .formWrapper .buttonWrapper button:hover {
   cursor: pointer;
   transform: scale(1.1);
   border-radius: 0;
