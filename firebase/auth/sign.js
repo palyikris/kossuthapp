@@ -2,8 +2,11 @@ import { auth } from "../config";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut
+  signOut,
+  signInWithPopup
 } from "firebase/auth";
+import { provider } from "./../config";
+import { signIn } from "@/firebase/auth/sign";
 
 export async function signUp(email, password) {
   let result = null,
@@ -22,6 +25,18 @@ export async function signIn(email, password) {
     error = null;
   try {
     result = await signInWithEmailAndPassword(auth, email, password);
+  } catch (e) {
+    error = e;
+  }
+
+  return { result, error };
+}
+
+export async function signInWithGoogle() {
+  let result = null,
+    error = null;
+  try {
+    result = await signInWithPopup(auth, provider);
   } catch (e) {
     error = e;
   }
