@@ -50,7 +50,8 @@
   width: 100%;
   justify-content: flex-end;
   background-color: white;
-  padding: 6rem 0rem 0 0;
+  padding-top: 2rem;
+  height: 100%;
 }
 .container .formWrapper form label {
   margin: 1rem 0;
@@ -79,7 +80,8 @@
   flex-direction: row;
   width: 100%;
   background-color: #008C00;
-  padding: 1rem 0;
+  padding: 2rem 0 0 0;
+  height: 100%;
 }
 .container .formWrapper form .buttonWrapper button {
   border-radius: 5px;
@@ -102,7 +104,9 @@
   flex-direction: row;
   width: 100%;
   background-color: #008C00;
-  padding: 1rem 0;
+  padding: 1rem 0 2rem 0;
+  height: 50%;
+  align-items: flex-start;
 }
 .container .formWrapper .buttonWrapper button {
   border-radius: 5px;
