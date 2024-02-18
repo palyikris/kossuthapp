@@ -116,9 +116,25 @@
   padding: 1rem 2rem;
   border: none;
   transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  width: auto;
+  height: 3rem;
 }
 .container .formWrapper .buttonWrapper button:hover {
   cursor: pointer;
   transform: scale(1.1);
   border-radius: 0;
+}
+.container .formWrapper .buttonWrapper button .googleImg {
+  width: 30px;
+  height: 30px;
+  margin-right: 1rem;
+  background-image: url("../../../public/googleimg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }/*# sourceMappingURL=page.module.css.map */

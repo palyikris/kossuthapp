@@ -86,7 +86,8 @@ export default function SignupPage() {
         </form>
         <div className={styles.buttonWrapper}>
           <button Google onClick={handleGoogleAuth}>
-            Google
+            <div className={styles.googleImg} />
+            <p>Google</p>
           </button>
         </div>
       </div>
