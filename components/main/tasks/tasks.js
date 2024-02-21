@@ -58,13 +58,7 @@ export default function Tasks(props) {
 
           if (isTaskChecked) {
             return (
-              <div
-                key={index}
-                className={styles.taskChecked}
-                onClick={() => {
-                  router.push(`/${user.uid}/${task.id}`);
-                }}
-              >
+              <div key={index} className={styles.taskChecked}>
                 <h3>
                   {task.name}
                 </h3>
@@ -87,13 +81,7 @@ export default function Tasks(props) {
 
           if (isTaskDone) {
             return (
-              <div
-                key={index}
-                className={styles.taskDone}
-                onClick={() => {
-                  router.push(`/${user.uid}/${task.id}`);
-                }}
-              >
+              <div key={index} className={styles.taskDone}>
                 <h3>
                   {task.name}
                 </h3>
@@ -114,13 +102,7 @@ export default function Tasks(props) {
             );
           }
           return (
-            <div
-              key={index}
-              className={styles.task}
-              onClick={() => {
-                router.push(`/${user.uid}/${task.id}`);
-              }}
-            >
+            <div key={index} className={styles.task}>
               <h3>
                 {task.name}
               </h3>
