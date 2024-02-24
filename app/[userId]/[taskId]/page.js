@@ -3,7 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
-import { GetResultOfTask, GetTaskData, SetTaskDone } from "@/lib/firebase/firebase";
+import { CheckIfTaskIsClosed, GetResultOfTask, GetTaskData, SetTaskDone } from "@/lib/firebase/firebase";
 import Spinner from './../../../components/cssspinner/spinner';
 
 export default function TaskDetailPage() {
@@ -29,9 +29,17 @@ export default function TaskDetailPage() {
 
   function handleUpload(e) {
     e.preventDefault();
-    SetTaskDone(taskId, uid).then(() => {
-      router.push(`/${uid}/main`);
-    })
+    CheckIfTaskIsClosed(taskId).then(isClosed => {
+      if (!isClosed) {
+        SetTaskDone(taskId, uid).then(() => {
+          GetResultOfTask(taskId, uid).then(data => {
+            setResult(data);
+          });
+        });
+      } else {
+        alert("A feladat már le van lezárva!");
+      }
+    });
   }
 
 
