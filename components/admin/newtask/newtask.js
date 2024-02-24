@@ -23,7 +23,8 @@ export default function NewTaskAdderComponent() {
       name: name,
       description: description,
       linktotask: link,
-      myclass: classData
+      myclass: classData,
+      closed: false
     };
     AddTask(data).then(() => {
       setName("");

@@ -55,5 +55,14 @@ export default function TasksAdmin(props) {
         </div>
       </div>
     );
+  } else {
+    return (
+      <div className={styles.container}>
+        <h1>Beadások</h1>
+        <div className={styles.tasks}>
+          <h2>Nincs találat!</h2>
+        </div>
+      </div>
+    );
   }
 }

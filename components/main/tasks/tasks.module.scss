@@ -29,7 +29,8 @@
 
         .task,
         .taskDone,
-        .taskChecked {
+        .taskChecked,
+        .taskClosed {
             @include centerDiv(column);
             width: 35%;
             margin: 1rem;
@@ -133,6 +134,35 @@
             &:hover {
                 cursor: pointer;
                 box-shadow: 0 0 14px 3px rgba($accent, 0.5);
+
+            }
+
+        }
+
+        .taskClosed {
+            box-shadow: 0 0 10px 2px rgba($accent, 0.5);
+            color: $accent2;
+
+            h3 {
+                color: $accent2;
+
+            }
+
+            p {
+                color: $accent2;
+            }
+
+            .details {
+                color: $accent2;
+            }
+
+            .linkToTask {
+                background-color: $accent2;
+            }
+
+            &:hover {
+                cursor: pointer;
+                box-shadow: 0 0 14px 3px rgba($accent2, 0.5);
 
             }
 

@@ -8,6 +8,23 @@
     border-radius: 10px;
     padding: 2rem 1rem;
 
+    h1 {
+        @include centerDiv(row);
+
+        button {
+            text-align: center;
+            background-color: transparent;
+            border: none;
+            font-size: 50px;
+            font-weight: bold;
+            color: $accent;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
     .tasks {
         @include centerDiv(row);
         flex-wrap: wrap;

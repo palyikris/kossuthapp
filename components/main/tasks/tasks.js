@@ -56,6 +56,23 @@ export default function Tasks(props) {
           let isTaskDone = checkIfTaskIdIsInResults(task.id);
           let isTaskChecked = checkIfTaskIsChecked(task.id);
 
+          if (task.closed) {
+            return (
+              <div key={index} className={styles.taskClosed}>
+                <h3>
+                  {task.name}
+                </h3>
+                <p>
+                  {task.description}
+                </p>
+                <p className={styles.details}>Lezárva...</p>
+                {/* <Link href={task.linktotask} className={styles.linkToTask}>
+                  Letöltés
+                </Link> */}
+              </div>
+            );
+          }
+
           if (isTaskChecked) {
             return (
               <div key={index} className={styles.taskChecked}>
@@ -101,6 +118,7 @@ export default function Tasks(props) {
               </div>
             );
           }
+
           return (
             <div key={index} className={styles.task}>
               <h3>
