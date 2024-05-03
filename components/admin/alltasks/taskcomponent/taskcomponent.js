@@ -24,7 +24,7 @@ export default function TaskComponent(props) {
       <h5>
         {task.class}
       </h5>
-      <div>
+      <div className={styles.buttons}>
         <button
           onClick={() => {
             DeleteTasksAndAllResultsByTaskId(task.id);

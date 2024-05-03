@@ -4,12 +4,20 @@
 
 .task {
     @include centerDiv(column);
+<<<<<<< HEAD
     width: 60%;
+=======
+    width: auto;
+    width: 50%;
+>>>>>>> 3fb87e591632f98512bb52f20385219c435e4d48
     background-color: $accent;
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 5px;
     margin: 1rem;
+<<<<<<< HEAD
     height: 20rem;
+=======
+>>>>>>> 3fb87e591632f98512bb52f20385219c435e4d48
 
     h2 {
         color: white;
@@ -29,9 +37,13 @@
         font-size: 16px;
     }
 
-    button {
-        @include myButton();
-        color: $accent;
-        margin-top: 3rem;
+    .buttons {
+        @include centerDiv(row);
+
+        button {
+            @include myButton();
+            color: $accent;
+            margin-top: 3rem;
+        }
     }
 }
