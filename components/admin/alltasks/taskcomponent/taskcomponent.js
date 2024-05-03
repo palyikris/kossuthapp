@@ -6,11 +6,12 @@ import {
   SetTaskOpen
 } from "@/lib/firebase/firebase";
 import styles from "./taskcomponent.module.css";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function TaskComponent(props) {
   let { task } = props;
   let router = useRouter();
+  let path = usePathname();
 
   return (
     <div className={styles.task}>
@@ -47,6 +48,13 @@ export default function TaskComponent(props) {
             >
               Lezárás
             </button>}
+        <button
+          onClick={() => {
+            router.push(`${path}/results/${task.id}`);
+          }}
+        >
+          Eredmények
+        </button>
       </div>
     </div>
   );

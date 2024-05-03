@@ -1,0 +1,21 @@
+@import "../../../../../uniform/uniform";
+
+
+.container {
+  @include centerDiv(column);
+  background-image: url("../../../../../public/kossuth3.jpg");
+  @include centerImg();
+  padding: 5rem 0;
+
+  .titleWrapper {
+    @include centerDiv(column);
+
+    h1 {
+      background-color: white;
+      color: $accent;
+      padding: 2rem 3rem;
+      border-radius: 5px;
+      font-size: 4em;
+    }
+  }
+}

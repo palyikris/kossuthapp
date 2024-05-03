@@ -11,7 +11,6 @@ export default function AllTasksComponent() {
     () => {
       GetAllTasks().then(data => {
         setTasks(data);
-        console.log(reloadTime);
       });
     },
     [reloadTime]

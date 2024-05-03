@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  background-image: url("../../../../../public/kossuth3.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 5rem 0;
+}
+.container .titleWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.container .titleWrapper h1 {
+  background-color: white;
+  color: #3A001E;
+  padding: 2rem 3rem;
+  border-radius: 5px;
+  font-size: 4em;
+}/*# sourceMappingURL=page.module.css.map */

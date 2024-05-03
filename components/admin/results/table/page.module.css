@@ -1,0 +1,51 @@
+.table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  color: #3A001E;
+  width: 90%;
+  padding: 2rem 1rem;
+  margin-top: 5rem;
+}
+.table .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(58, 0, 30, 0.5);
+}
+.table .row .name,
+.table .row .grade {
+  text-align: center;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+.table .row:first-child {
+  border-bottom: 1px solid rgba(58, 0, 30, 0.5);
+}
+.table .row:first-child div {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.table .points {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.table .points div {
+  width: 50%;
+  text-align: center;
+}/*# sourceMappingURL=page.module.css.map */

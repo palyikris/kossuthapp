@@ -4,13 +4,12 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  width: auto;
-  width: 40%;
+  width: 60%;
   background-color: #3A001E;
   padding: 1rem;
   border-radius: 5px;
   margin: 1rem;
-  height: 16rem;
+  height: 20rem;
 }
 .task h2 {
   color: white;
