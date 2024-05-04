@@ -4,20 +4,14 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-<<<<<<< HEAD
   width: 60%;
-=======
   width: auto;
   width: 50%;
->>>>>>> 3fb87e591632f98512bb52f20385219c435e4d48
   background-color: #3A001E;
   padding: 2rem;
   border-radius: 5px;
   margin: 1rem;
-<<<<<<< HEAD
   height: 20rem;
-=======
->>>>>>> 3fb87e591632f98512bb52f20385219c435e4d48
 }
 .task h2 {
   color: white;
