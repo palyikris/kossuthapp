@@ -5,6 +5,7 @@ import styles from "./page.module.css";
 import {
   GetClasses,
   GetResultsByTaskId,
+  GetResultsWithNamesByTaskId,
   GetTasksOfClass
 } from "@/lib/firebase/firebase";
 import TasksAdmin from "@/components/admin/tasks/tasks";
@@ -42,7 +43,7 @@ export default function AdminPage() {
 
   function handleTasks(e) {
     e.preventDefault();
-    GetResultsByTaskId(chosenTask).then(response => {
+    GetResultsWithNamesByTaskId(chosenTask).then(response => {
       let tasks = response;
 
       if (isAll) {

@@ -14,13 +14,7 @@ export default function TasksAdmin(props) {
   let currId = pathname[1];
 
   useEffect(() => {
-    tasks.forEach(async (task, index) => {
-      let userData = await GetUserData(task.uid);
-      setUserDatas(prev => [...prev, userData]);
-      if (index === tasks.length - 1) {
-        setUserDataFetched(true);
-      }
-    });
+    setUserDataFetched(true);
   }, []);
 
   if (userDataFetched) {
@@ -40,13 +34,19 @@ export default function TasksAdmin(props) {
                 <div className={styles.userData}>
                   <label>Kitől:</label>
                   <p>
-                    {userDatas[index].fullname}
+                    {task.name}
                   </p>
                 </div>
                 <div className={styles.userData}>
                   <label>Osztály:</label>
                   <p>
-                    {userDatas[index].class}
+                    {task.userClass}
+                  </p>
+                </div>
+                <div className={styles.userData}>
+                  <label>Jegy:</label>
+                  <p>
+                    {task.grade}
                   </p>
                 </div>
               </button>

@@ -3,7 +3,8 @@ import styles from "./page.module.css";
 
 export default function ResultsTable(props) {
   let { results } = props;
-  let sortedResults = results.sort((a, b) => a.grade - b.grade);
+  let sortedResults = [...results].sort((a, b) => a.name.localeCompare(b.name));
+  console.log(sortedResults);
   return (
     <div className={styles.table}>
       <div className={styles.row}>
@@ -12,12 +13,11 @@ export default function ResultsTable(props) {
         <div className={styles.grade}>Jegy</div>
       </div>
       {sortedResults.map(result => {
-        console.log(result);
         return (
           <div key={result.uid} className={styles.row}>
             <div className={styles.name}>
               <p>
-                {name}
+                {result.name}
               </p>
             </div>
             <div className={styles.points}>
