@@ -1,0 +1,18 @@
+@import "../../../uniform/uniform";
+
+
+.container {
+  @include centerDiv(row);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  justify-content: flex-start;
+  padding-left: 2rem;
+
+  button {
+    @include myButton();
+    background-color: $red;
+    color: white;
+  }
+}

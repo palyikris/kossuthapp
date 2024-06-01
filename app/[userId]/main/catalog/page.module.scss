@@ -1,0 +1,56 @@
+@import "../../../../uniform/uniform";
+
+
+.container {
+  @include centerDiv(row);
+  height: 100vh;
+  background-image: url("../../../../public/kossuth3.jpg");
+  @include centerImg();
+
+  .flag {
+    @include centerDiv(column);
+    width: 50%;
+    height: 60vh;
+
+    .red {
+      background-color: $red;
+      @include centerDiv(column);
+      height: 33%;
+      border-radius: 10px 10px 0 0;
+
+      h3 {
+        color: white;
+        font-size: 2rem
+      }
+    }
+
+    .white {
+      background-color: white;
+      @include centerDiv(column);
+      height: 33%;
+
+      p {
+        font-size: 1rem;
+        margin-bottom: .5rem;
+      }
+
+      input {
+        width: 60%;
+        padding: 1rem .5rem;
+        border: 1px solid black;
+        border-radius: 5px;
+      }
+    }
+
+    .green {
+      background-color: $green;
+      @include centerDiv(column);
+      height: 33%;
+      border-radius: 0 0 10px 10px;
+
+      button {
+        @include myButton();
+      }
+    }
+  }
+}

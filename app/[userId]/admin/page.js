@@ -12,6 +12,7 @@ import TasksAdmin from "@/components/admin/tasks/tasks";
 import NewTaskAdderComponent from "@/components/admin/newtask/newtask";
 import { logOut } from "@/firebase/auth/sign";
 import AllTasksComponent from "@/components/admin/alltasks/alltasks";
+import CatalogComponent from "@/components/admin/catalog/page";
 
 export default function AdminPage() {
   let [classes, setClasses] = useState([]);
@@ -174,6 +175,7 @@ export default function AdminPage() {
 
       <NewTaskAdderComponent />
       <AllTasksComponent />
+      <CatalogComponent classes={classes} />
     </div>
   );
 }

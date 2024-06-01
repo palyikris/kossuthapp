@@ -1,0 +1,78 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../../../public/kossuth3.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.container .flag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  width: 50%;
+  height: 60vh;
+}
+.container .flag .red {
+  background-color: #E52020;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 33%;
+  border-radius: 10px 10px 0 0;
+}
+.container .flag .red h3 {
+  color: white;
+  font-size: 2rem;
+}
+.container .flag .white {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 33%;
+}
+.container .flag .white p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.container .flag .white input {
+  width: 60%;
+  padding: 1rem 0.5rem;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.container .flag .green {
+  background-color: #008C00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 33%;
+  border-radius: 0 0 10px 10px;
+}
+.container .flag .green button {
+  border-radius: 5px;
+  background-color: white;
+  color: #008C00;
+  margin: 0 1rem;
+  padding: 1rem 2rem;
+  border: none;
+  transition: all 0.5s;
+}
+.container .flag .green button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  border-radius: 0;
+}/*# sourceMappingURL=page.module.css.map */

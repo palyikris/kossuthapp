@@ -13,6 +13,7 @@ import {
 import { useAuthContext } from "@/context/AuthContext";
 import { logOut } from "@/firebase/auth/sign";
 import Loader from "@/components/loader/loader";
+import CatalogForStudents from "@/components/main/catalog/page";
 
 export default function MainPage() {
   let { user } = useAuthContext();
@@ -60,12 +61,11 @@ export default function MainPage() {
     return <Loader />;
   }
 
-  let text = `Neked eddig ${(
-    tasks.length
-  )} feladatod volt.`;
+  let text = `Neked eddig ${tasks.length} feladatod volt.`;
 
   return (
     <div className={styles.container}>
+      <CatalogForStudents />
       <div className={styles.text}>
         <h1>Kossuth Lajos azt üzente...</h1>
         <h4>

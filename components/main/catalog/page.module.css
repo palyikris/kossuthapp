@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  justify-content: flex-start;
+  padding-left: 2rem;
+}
+.container button {
+  border-radius: 5px;
+  background-color: white;
+  color: #008C00;
+  margin: 0 1rem;
+  padding: 1rem 2rem;
+  border: none;
+  transition: all 0.5s;
+  background-color: #E52020;
+  color: white;
+}
+.container button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  border-radius: 0;
+}/*# sourceMappingURL=page.module.css.map */

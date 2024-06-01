@@ -1,0 +1,79 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  width: 60%;
+  border-radius: 10px;
+  padding: 3rem 1rem;
+  margin-bottom: 5rem;
+}
+.container h3 {
+  font-size: 3rem;
+  color: #3A001E;
+  margin-bottom: 5rem;
+}
+.container .optionsWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.container .optionsWrapper .option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.container .optionsWrapper .option p {
+  font-size: 1rem;
+  color: #3A001E;
+  width: 50%;
+}
+.container .optionsWrapper .option select {
+  width: 50%;
+  padding: 1rem 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #3A001E;
+}
+.container .optionsWrapper .code {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 2rem;
+}
+.container .optionsWrapper .code h5 {
+  font-size: 1.5rem;
+  color: #3A001E;
+  margin-bottom: 0.5rem;
+}
+.container .optionsWrapper .code input {
+  width: 50%;
+  padding: 1rem 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #3A001E;
+}
+.container .optionsWrapper .code button {
+  border-radius: 5px;
+  background-color: white;
+  color: #008C00;
+  margin: 0 1rem;
+  padding: 1rem 2rem;
+  border: none;
+  transition: all 0.5s;
+  background-color: #3A001E;
+  color: white;
+  margin-top: 1rem;
+}
+.container .optionsWrapper .code button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  border-radius: 0;
+}/*# sourceMappingURL=page.module.css.map */
