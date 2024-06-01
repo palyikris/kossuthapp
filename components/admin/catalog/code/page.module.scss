@@ -3,6 +3,22 @@
 .container {
   @include centerDiv(column);
 
+  .controls {
+    @include centerDiv(row);
+    margin-bottom: 3rem;
+
+    h3 {
+      margin-bottom: 0;
+      font-size: 2.5rem;
+    }
+
+    button {
+      @include myButton;
+      background-color: $accent;
+      color: white;
+    }
+  }
+
   .catalog {
     @include centerDiv(column);
     background-color: $accent;
@@ -15,6 +31,13 @@
       @include centerDiv(row);
       border-bottom: 1px solid white;
       padding-bottom: 1rem;
+
+      button {
+        @include myButton();
+        background-color: white;
+        color: $accent;
+        padding: .5rem 1rem;
+      }
 
       .data {
         @include centerDiv(row);

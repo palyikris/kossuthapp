@@ -72,7 +72,10 @@ export default function CatalogComponent({ classes }) {
           {code == ""
             ? <button onClick={generateCode}>Kód generálása</button>
             : <button
-                onClick={() => navigator.clipboard.writeText(code)}
+                onClick={() => {
+                  navigator.clipboard.writeText(code);
+                  setCode("");
+                }}
                 className={styles.copyButton}
               >
                 Kód másolása
