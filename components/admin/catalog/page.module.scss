@@ -12,11 +12,12 @@
   h3 {
     font-size: 3rem;
     color: $accent;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
   }
 
   .optionsWrapper {
     @include centerDiv(column);
+    margin-bottom: 5rem;
 
     .option {
       @include centerDiv(column);

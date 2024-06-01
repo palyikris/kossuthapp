@@ -1,0 +1,55 @@
+@import "../../../../uniform/uniform";
+
+.container {
+  @include centerDiv(column);
+
+  .catalog {
+    @include centerDiv(column);
+    background-color: $accent;
+    width: 90%;
+    border-radius: 10px;
+    color: white;
+    padding: 2rem .5rem;
+
+    .specs {
+      @include centerDiv(row);
+      border-bottom: 1px solid white;
+      padding-bottom: 1rem;
+
+      .data {
+        @include centerDiv(row);
+
+        p {
+          margin-right: .5rem;
+          font-size: 1rem;
+        }
+
+        div {
+          font-size: 1rem;
+          font-weight: bold;
+        }
+      }
+
+      &:nth-child(3) {
+        border: none;
+        padding: 0;
+        border-top: 1px solid white;
+        padding-top: 1rem;
+      }
+    }
+
+    .absents {
+      @include centerDiv(row);
+      flex-wrap: wrap;
+      padding: 1rem 0;
+
+      p {
+        margin: .5rem;
+        padding: .5rem;
+        background-color: white;
+        border-radius: 5px;
+        color: $accent;
+      }
+    }
+  }
+}

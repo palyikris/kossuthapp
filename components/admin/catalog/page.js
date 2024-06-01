@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./page.module.css";
 import { GenerateCatalogCode } from "@/lib/firebase/firebase";
 import Loader from "./../../loader/loader";
+import CatalogCodesComponent from "./code/page";
 
 export default function CatalogComponent({ classes }) {
   let [code, setCode] = useState("");
@@ -52,7 +53,7 @@ export default function CatalogComponent({ classes }) {
             })}
           </select>
         </div>
-        <div className={styles.option}>
+        {/* <div className={styles.option}>
           <p>Időtartam</p>
           <select
             value={expiration}
@@ -64,7 +65,7 @@ export default function CatalogComponent({ classes }) {
             <option value={5}>5 perc</option>
             <option value={10}>10 perc</option>
           </select>
-        </div>
+        </div> */}
         <div className={styles.code}>
           <h5>Kód</h5>
           <input type="text" value={code} readOnly />
@@ -78,6 +79,7 @@ export default function CatalogComponent({ classes }) {
               </button>}
         </div>
       </div>
+      <CatalogCodesComponent />
     </div>
   );
 }
