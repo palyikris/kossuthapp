@@ -172,10 +172,9 @@ export default function AdminPage() {
       </div>
 
       {isTasksDisplayed ? <TasksAdmin tasks={tasks} /> : <div />}
-
+      <CatalogComponent classes={classes} />
       <NewTaskAdderComponent />
       <AllTasksComponent />
-      <CatalogComponent classes={classes} />
     </div>
   );
 }

@@ -94,7 +94,9 @@ export default function CatalogCodesComponent() {
         </button>
       </div>
       {catalogData.map((data, index) => {
-        let createdAt = moment(data.createdAt.toDate()).format("YYYY-MM-DD");
+        let createdAt = moment(data.createdAt.toDate()).format(
+          "YYYY-MM-DD HH:mm"
+        );
         return (
           <div key={index} className={styles.catalog}>
             <div className={styles.specs}>
