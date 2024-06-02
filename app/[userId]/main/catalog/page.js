@@ -19,11 +19,17 @@ export default function CatalogPage() {
     setLoading(true);
     GetUserNameById(userId).then(name => {
       setUserName(name);
-      LogStudentToCatalog(code, userId, name).then(response => {
-        setWasLoggingSuccessful(response);
-        setHasBeenLogged(true);
-        setLoading(false);
-      });
+      fetch("https://api.ipify.org?format=json")
+        .then(response => response.json())
+        .then(data => {
+          console.log(data.ip);
+          LogStudentToCatalog(code, userId, name, data.ip).then(response => {
+            setWasLoggingSuccessful(response);
+            setHasBeenLogged(true);
+            setLoading(false);
+          });
+        })
+        .catch(error => console.error("Error:", error));
     });
   }
 

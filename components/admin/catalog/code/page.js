@@ -120,11 +120,27 @@ export default function CatalogCodesComponent() {
               {data.absentStudents
                 .sort((a, b) => a.fullname.localeCompare(b.fullname))
                 .map((student, index) => {
-                  return (
-                    <p key={index}>
-                      {student.fullname}
-                    </p>
-                  );
+                  if (!student.isAbsent) {
+                    return (
+                      <div key={index} className={styles.studentLogged}>
+                        <p>
+                          {student.fullname}
+                        </p>
+                        <p>
+                          {student.ip}
+                        </p>
+                      </div>
+                    );
+                  } else {
+                    return (
+                      <div key={index} className={styles.studentAbsent}>
+                        <p>
+                          {student.fullname}
+                        </p>
+                        <p>Hiányzó</p>
+                      </div>
+                    );
+                  }
                 })}
             </div>
             <div className={styles.specs}>

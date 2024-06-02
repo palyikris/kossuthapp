@@ -101,10 +101,27 @@
   flex-wrap: wrap;
   padding: 1rem 0;
 }
-.container .catalog .absents p {
+.container .catalog .absents .studentLogged,
+.container .catalog .absents .studentAbsent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  width: auto;
   margin: 0.5rem;
   padding: 0.5rem;
-  background-color: white;
   border-radius: 5px;
+  background-color: white;
   color: #3A001E;
+  font-size: 1rem;
+}
+.container .catalog .absents .studentLogged p,
+.container .catalog .absents .studentAbsent p {
+  margin: 0.2rem 0;
+}
+.container .catalog .absents .studentAbsent {
+  background-color: #3A001E;
+  color: white;
+  border: 1px solid white;
 }/*# sourceMappingURL=page.module.css.map */

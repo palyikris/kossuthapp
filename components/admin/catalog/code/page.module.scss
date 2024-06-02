@@ -66,12 +66,26 @@
       flex-wrap: wrap;
       padding: 1rem 0;
 
-      p {
+      .studentLogged,
+      .studentAbsent {
+        @include centerDiv(column);
+        width: auto;
         margin: .5rem;
         padding: .5rem;
-        background-color: white;
         border-radius: 5px;
+        background-color: white;
         color: $accent;
+        font-size: 1rem;
+
+        p {
+          margin: .2rem 0;
+        }
+      }
+
+      .studentAbsent {
+        background-color: $accent;
+        color: white;
+        border: 1px solid white;
       }
     }
   }
