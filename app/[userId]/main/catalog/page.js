@@ -10,6 +10,7 @@ export default function CatalogPage() {
   let [loading, setLoading] = useState(false);
   let [hasBeenLogged, setHasBeenLogged] = useState(false);
   let [wasLoggingSuccessful, setWasLoggingSuccessful] = useState(false);
+  let [logMessage, setLogMessage] = useState("");
   let [userName, setUserName] = useState("");
   let path = usePathname();
   let router = useRouter();
@@ -22,9 +23,9 @@ export default function CatalogPage() {
       fetch("https://api.ipify.org?format=json")
         .then(response => response.json())
         .then(data => {
-          console.log(data.ip);
           LogStudentToCatalog(code, userId, name, data.ip).then(response => {
-            setWasLoggingSuccessful(response);
+            setWasLoggingSuccessful(response.success);
+            setLogMessage(response.message);
             setHasBeenLogged(true);
             setLoading(false);
           });
@@ -59,9 +60,9 @@ export default function CatalogPage() {
             <h3>Katalógus</h3>
           </div>
           <div className={styles.white}>
-            {wasLoggingSuccessful
-              ? <p>Sikerült!</p>
-              : <p>Nem sikerült... Béna vagy. Keresd meg a Feljebbvalód!</p>}
+            <p>
+              {logMessage}
+            </p>
           </div>
           <div className={styles.green}>
             <button
