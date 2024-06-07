@@ -15,6 +15,17 @@ export default function SignupPage() {
     const { result, error } = await signUp(email, password);
 
     if (error) {
+      if (error.code === "auth/user-not-found") {
+        toast.error("Nincs is fiókod, broski! Regisztrálj!", {
+          autoClose: 1500
+        });
+      } else if (error.code === "auth/invalid-credential") {
+        toast.error("Emlékezni kéne a jelszavadra...", {
+          autoClose: 1500
+        });
+      } else {
+        toast.error("Valami gebasz van!", { autoClose: 1500 });
+      }
       return console.log(error);
     }
 

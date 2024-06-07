@@ -4,6 +4,8 @@ import { useState } from "react";
 import styles from "./page.module.css";
 import { usePathname, useRouter } from "next/navigation";
 import { GetUserNameById, LogStudentToCatalog } from "@/lib/firebase/firebase";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function CatalogPage() {
   let [code, setCode] = useState("");
@@ -23,7 +25,20 @@ export default function CatalogPage() {
       fetch("https://api.ipify.org?format=json")
         .then(response => response.json())
         .then(data => {
-          LogStudentToCatalog(code, userId, name, data.ip).then(response => {
+          LogStudentToCatalog(
+            code.toUpperCase(),
+            userId,
+            name,
+            data.ip
+          ).then(response => {
+            console.log(response);
+            if (!response.success) {
+              toast.error("Valami gebasz van!", { autoClose: 1500 });
+            } else {
+              toast.success("Mind örülünk, hogy itt vagy!:)", {
+                autoClose: 1500
+              });
+            }
             setWasLoggingSuccessful(response.success);
             setLogMessage(response.message);
             setHasBeenLogged(true);
@@ -37,6 +52,7 @@ export default function CatalogPage() {
   if (loading) {
     return (
       <div className={styles.container}>
+        <ToastContainer />
         <div className={styles.flag}>
           <div className={styles.red}>
             <h3>Katalógus</h3>
@@ -55,6 +71,7 @@ export default function CatalogPage() {
   if (hasBeenLogged) {
     return (
       <div className={styles.container}>
+        <ToastContainer />
         <div className={styles.flag}>
           <div className={styles.red}>
             <h3>Katalógus</h3>
@@ -80,6 +97,7 @@ export default function CatalogPage() {
 
   return (
     <div className={styles.container}>
+      <ToastContainer />
       <div className={styles.flag}>
         <div className={styles.red}>
           <h3>Katalógus</h3>

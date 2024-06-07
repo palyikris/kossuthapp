@@ -5,6 +5,9 @@ import styles from "./page.module.css";
 import { useEffect, useState } from "react";
 import { CheckIfTaskIsClosed, GetResultOfTask, GetTaskData, SetTaskDone } from "@/lib/firebase/firebase";
 import Spinner from './../../../components/cssspinner/spinner';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 export default function TaskDetailPage() {
   let pathName = usePathname();
@@ -34,10 +37,11 @@ export default function TaskDetailPage() {
         SetTaskDone(taskId, uid).then(() => {
           GetResultOfTask(taskId, uid).then(data => {
             setResult(data);
+            toast.success("Feladat beküldve!", { autoClose: 1500 });
           });
         });
       } else {
-        alert("A feladat már le van lezárva!");
+        toast.error("A feladat már lezárult!", { autoClose: 1500 });
       }
     });
   }
@@ -65,6 +69,7 @@ export default function TaskDetailPage() {
 
   return (
     <div className={styles.container}>
+      <ToastContainer></ToastContainer>
       <div className={styles.details}>
         <div className={styles.taskData}>
           <h1>

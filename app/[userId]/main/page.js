@@ -14,6 +14,8 @@ import { useAuthContext } from "@/context/AuthContext";
 import { logOut } from "@/firebase/auth/sign";
 import Loader from "@/components/loader/loader";
 import CatalogForStudents from "@/components/main/catalog/page";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function MainPage() {
   let { user } = useAuthContext();
@@ -65,6 +67,7 @@ export default function MainPage() {
 
   return (
     <div className={styles.container}>
+      <ToastContainer />
       <CatalogForStudents />
       <div className={styles.text}>
         <h1>Kossuth Lajos azt üzente...</h1>
@@ -77,7 +80,10 @@ export default function MainPage() {
           </h3>
           <button
             onClick={() => {
-              logOut();
+              toast.success("Na csumi csumi csumi csumi!", { autoClose: 500 });
+              setTimeout(() => {
+                logOut();
+              }, 1000);
             }}
           >
             Kijelentkezés

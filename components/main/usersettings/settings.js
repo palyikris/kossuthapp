@@ -5,6 +5,7 @@ import { GetClasses, GetUserData, SetUserData } from "@/lib/firebase/firebase";
 import { useEffect, useState } from "react";
 import styles from "./settings.module.css";
 import Spinner from "@/components/cssspinner/spinner";
+import { toast } from "react-toastify";
 
 export default function UserSettings() {
   let [classes, setClasses] = useState([]);
@@ -28,7 +29,12 @@ export default function UserSettings() {
   function handleMutation(e) {
     e.preventDefault();
     setLoading(true);
-    SetUserData(uid, fullname, selectedClass).then(() => {
+    SetUserData(uid, fullname, selectedClass).then(res => {
+      if (res) {
+        toast.success("Sikeres módosítás!", { autoClose: 1500 });
+      } else {
+        toast.error("Valami gebasz van!", { autoClose: 1500 });
+      }
       setLoading(false);
     });
   }

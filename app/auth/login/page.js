@@ -3,6 +3,8 @@ import { signIn, signInWithGoogle } from "@/firebase/auth/sign";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import styles from "../newacc/page.module.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
@@ -15,6 +17,19 @@ export default function SignupPage() {
     const { result, error } = await signIn(email, password);
 
     if (error) {
+      if (error.code === "auth/user-not-found") {
+        toast.error("Nincs is fiókod, broski! Regisztrálj!", {
+          autoClose: 1500
+        });
+      } else if (error.code === "auth/invalid-credential") {
+        toast.error("Emlékezni kéne a jelszavadra...", {
+          autoClose: 1500
+        });
+      } else {
+        toast.error("Valami gebasz van!", {
+          autoClose: 1500
+        });
+      }
       return console.log(error);
     }
 
@@ -44,6 +59,7 @@ export default function SignupPage() {
   }
   return (
     <div className={styles.container}>
+      <ToastContainer />
       <div className={styles.img} />
       <div className={styles.formWrapper}>
         <div className={styles.text}>
